@@ -45,7 +45,7 @@ async function run() {
       const database = client.db('doctor_portal');
       const appointmentsCollection = database.collection('appointments');
       const usersCollection = database.collection('users'); 
-      const doctorCollection = database.collection('doctor'); 
+      const doctorCollection = database.collection('doctors'); 
      
       app.get('/appointments', verifyToken, async (req, res) => {
         const email = req.query.email;
@@ -90,22 +90,22 @@ res.json(doctors);
     });
 
     app.post('/doctors', async(req, res)=>{
-const name= req.body;
-const email= req.body;
-const pic = req.fiels.image;
-const picdata = pic.data;
-const encodePic = picdata.toString('base64');
-const imageBuffer = Buffer.from(encodePic, 'base64');
-const doctor = {
-    name,
-    email,
-
-    imageBuffer
-};
-const result = await doctorCollection.insertOne(doctor);
-res.json(result);
+        const name = req.body.name;
+        const email = req.body.email;
+        const pic = req.files.image;
+        const picData = pic.data;
+        const encodedPic = picData.toString('base64');
+        const imageBuffer = Buffer.from(encodedPic, 'base64');
+        const doctor = {
+            name,
+            email,
+            image: imageBuffer
+        }
+        const result = await doctorCollection.insertOne(doctor);
+        res.json(result);
 
     });
+
 
     app.get('/users/:email', async (req, res) => {
         const email = req.params.email;
