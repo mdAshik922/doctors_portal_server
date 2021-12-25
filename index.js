@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const cors = require('cors');
 const admin = require("firebase-admin");
 require('dotenv').config();
 const { MongoClient } = require('mongodb');
