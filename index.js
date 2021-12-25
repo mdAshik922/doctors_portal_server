@@ -1,5 +1,5 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 const cors = require('cors');
 const admin = require("firebase-admin");
 require('dotenv').config();
@@ -15,6 +15,7 @@ const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
+
 app.use(cors());
 app.use(express.json());
 app.use(fileupload());
@@ -33,11 +34,11 @@ async function verifyToken(req, res, next) {
       }
       catch {
 
-      }
+      };
 
-  }
+  };
   next();
-}
+};
 
 async function run() {
     try {
@@ -80,7 +81,7 @@ res.json(result);
             }
         };
         const result = await appointmentsCollection.updateOne(filter, updateDoc);
-        res.json(result);
+       
     });
 
     app.get('/doctors', async(req, res)=>{
@@ -100,7 +101,7 @@ res.json(doctors);
             name,
             email,
             image: imageBuffer
-        }
+        };
         const result = await doctorCollection.insertOne(doctor);
         res.json(result);
 
@@ -121,7 +122,6 @@ res.json(doctors);
     app.post('/users', async (req, res) => {
         const user = req.body;
         const result = await usersCollection.insertOne(user);
-        console.log(result);
         res.json(result);
     });
 
