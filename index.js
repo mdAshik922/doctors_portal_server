@@ -87,7 +87,7 @@ res.json(result);
     app.get('/doctors', async(req, res)=>{
 const coursor = doctorCollection.findOne({});
 const doctors = await coursor.toArray();
-
+res.json(doctors); 
     });
 
     app.post('/doctors', async(req, res)=>{
