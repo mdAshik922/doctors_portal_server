@@ -90,7 +90,7 @@ const doctors = await coursor.toArray();
 res.json(doctors); 
     });
 
-    app.post('/', async(req, res)=>{
+    app.post('/doctors', async(req, res)=>{
         const name = req.body.name;
         const email = req.body.email;
         const pic = req.files.image;
