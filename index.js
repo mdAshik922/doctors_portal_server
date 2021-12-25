@@ -100,7 +100,7 @@ res.json(doctors);
         const doctor = {
             name,
             email,
-            image: 
+            image: imageBuffer
         };
         const result = await doctorCollection.insertOne(doctor);
         res.json(result);
