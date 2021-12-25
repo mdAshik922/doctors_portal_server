@@ -102,7 +102,8 @@ res.json(doctors);
             email,
             image: imageBuffer
         };
-       
+        const result = await doctorCollection.insertOne(doctor);
+        res.json(result);
 
     });
 
