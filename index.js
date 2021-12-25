@@ -77,7 +77,7 @@ res.json(result);
         const filter = {_id: ObjectId(id)};
         const updateDoc = {
             $set:{
-                
+                payment: payment
             }
         };
         const result = await appointmentsCollection.updateOne(filter, updateDoc);
