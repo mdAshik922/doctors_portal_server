@@ -7,7 +7,7 @@ const { MongoClient } = require('mongodb');
 const ObjectId = require('mongodb').ObjectId;
 const { response } = require('express');
 const stripe = require('stripe')(process.env.STRIPE_SECRITE);
-
+const fileupload = require('express-fileupload');
 
 const port = process.env.PORT || 5000;
 
