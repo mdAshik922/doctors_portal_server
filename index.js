@@ -85,7 +85,7 @@ res.json(result);
     });
 
     app.get('/doctors', async(req, res)=>{
-const coursor = doctorCollection.findOne({});
+const coursor = doctorCollection;
 const doctors = await coursor.toArray();
 res.json(doctors); 
     });
