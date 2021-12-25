@@ -81,7 +81,7 @@ res.json(result);
             }
         };
         const result = await appointmentsCollection.updateOne(filter, updateDoc);
-       
+        res.json(result);
     });
 
     app.get('/doctors', async(req, res)=>{
