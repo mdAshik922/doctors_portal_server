@@ -71,7 +71,7 @@ res.json(result);
         res.json(result);
     });
     
-    app.put('//:id', async(req, res)=>{
+    app.put('/appointments/:id', async(req, res)=>{
         const id = req.params.id;
         const payment = req.body;
         const filter = {_id: ObjectId(id)};
